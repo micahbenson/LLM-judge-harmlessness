@@ -1,0 +1,5 @@
+https://ai.meta.com/blog/measure-fairness-and-mitigate-ai-bias/ 
+https://github.com/facebookresearch/ResponsibleNLP 
+https://www.surgehq.ai/datasets 
+https://www.kaggle.com/competitions/jigsaw-unintended-bias-in-toxicity-classification/data 
+https://realtoxicityprompts.apps.allenai.org/ 
