@@ -3,6 +3,11 @@ import numpy as np
 import json
 import pprint
 import google.generativeai as palm
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+api_key = os.environ['API_KEY']
 
 comments = pd.read_csv("./data/civil_comments.csv")
 identity_attack = comments[comments["identity_attack"]>0]
@@ -55,14 +60,14 @@ for i in range(len(comments_win)):
 
 ##send to the model 
 
-palm.configure(api_key='key')
+palm.configure(api_key=api_key)
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
 
 
 completions = []
-for i, prompt in enumerate(prompts_lose_first[:100]): 
+for i, prompt in enumerate(prompts_lose_first[:5]): 
     completion = palm.generate_text(
         model=model,
         prompt=prompt,

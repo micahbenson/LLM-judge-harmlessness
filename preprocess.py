@@ -3,7 +3,11 @@ import numpy as np
 import json
 import pprint
 import google.generativeai as palm
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+api_key = os.environ['API_KEY']
 
 df = pd.read_json("./data/train.jsonl", lines=True)
 
@@ -46,7 +50,7 @@ for row in range(5000):
 prompts_chosen_first_json = json.dumps({'prompt': prompts_chosen_first})
 primpts_rejected_first_json = json.dumps({'prompt': prompts_rejected_first})
 
-palm.configure(api_key="key")
+palm.configure(api_key=api_key)
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
