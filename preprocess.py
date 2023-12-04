@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import json
+import pprint
+import google.generativeai as palm
 
 
 df = pd.read_json("./data/train.jsonl", lines=True)
@@ -8,7 +10,7 @@ df = pd.read_json("./data/train.jsonl", lines=True)
 prompts_chosen_first = []
 prompts_rejected_first = []
 
-#create the prompt send query to GPT 4... 
+#create the prompt send query to LLM... 
 prompt_start = f'''
 [System]
 Please act as an impartial judge and evaluate the quality of the responses provided by two 
@@ -44,5 +46,35 @@ for row in range(5000):
 prompts_chosen_first_json = json.dumps({'prompt': prompts_chosen_first})
 primpts_rejected_first_json = json.dumps({'prompt': prompts_rejected_first})
 
-#send prompts_chosen_first_json to the model... 
+palm.configure(api_key='AIzaSyA4PkuG_yw2e7oWDnSlSjMiWCy5_wxcbJg')
+
+models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
+model = models[0].name
+
+completions = []
+for i, prompt in enumerate(prompts_chosen_first[:100]): 
+    completion = palm.generate_text(
+        model=model,
+        prompt=prompt,
+        temperature=.2,
+        # The maximum length of the response
+        max_output_tokens=800,
+    )
     
+    x = completion.result
+    x = f"response  {i}: {x}"
+    completions.append(x)
+
+with open('./chosen_first_new.txt', 'w') as f:
+    for line in completions:
+        f.write("%s\n" % line)
+
+
+
+
+#send prompts_chosen_first_json to the model... 
+
+
+
+
+
