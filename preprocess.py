@@ -46,7 +46,7 @@ for row in range(5000):
 prompts_chosen_first_json = json.dumps({'prompt': prompts_chosen_first})
 primpts_rejected_first_json = json.dumps({'prompt': prompts_rejected_first})
 
-palm.configure(api_key='AIzaSyA4PkuG_yw2e7oWDnSlSjMiWCy5_wxcbJg')
+palm.configure(api_key="key")
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name

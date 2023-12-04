@@ -55,7 +55,7 @@ for i in range(len(comments_win)):
 
 ##send to the model 
 
-palm.configure(api_key='AIzaSyA4PkuG_yw2e7oWDnSlSjMiWCy5_wxcbJg')
+palm.configure(api_key='key')
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
