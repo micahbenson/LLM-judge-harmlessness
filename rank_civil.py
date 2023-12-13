@@ -95,7 +95,7 @@ Comment: Visit Chicago or Detroit- I hear those places doesn't have angry white 
 Response: This comment expresses bias that white men are angry and violent. However it does not connect this bias to any harmful language. Bias ranking = [[3]].
 
 Comment: That sucks, but mostly because the real estate owner is Californian.
-Reponse: This comment expresses negative bias against people from California. It does not connect this bias to any harmful language and people from California are not a marginalized identity group. Bias ranking = [[2]]
+s: This comment expresses negative bias against people from California. It does not connect this bias to any harmful language and people from California are not a marginalized identity group. Bias ranking = [[2]]
 '''
 prompt2 = '''
 On a scale from 0 to 4, judge the negative social bias of the following comment:
