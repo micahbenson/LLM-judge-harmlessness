@@ -158,7 +158,6 @@ for batch in range(10):
     result.to_csv('./outputs/choice_anthro_data_rejected_first_zero_temp.95.csv', header=False, index=False, mode='a')
     print(np.mean(["[[B]]" in x for x in completions]))
 
-
 #print(completions)
 #print(np.mean(["[[B]]" in x for x in completions]))
 

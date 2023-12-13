@@ -14,6 +14,7 @@ for i, response in enumerate(response_chosen_first):
         if ("[[B]]" not in response): 
             result_chosen_first[i] = 1
 
+
 accuracy_chosen_first = np.mean(result_chosen_first)
 
 result_chosen_first = np.zeros(len(response_chosen_first))
