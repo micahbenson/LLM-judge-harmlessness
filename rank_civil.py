@@ -12,6 +12,7 @@ def process_comments(comments):
     identity_attack = comments[comments["identity_attack"]>0]
     identity_attack = identity_attack.reset_index(drop=True)
 
+    np.random.seed(527)
     i = np.random.choice(identity_attack.shape[0]-1, replace=False, size=int(identity_attack.shape[0]/2))
 
     a = identity_attack.loc[i].reset_index(drop=True)
